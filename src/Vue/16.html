@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ideal</title>
+        <meta charset="utf-8">
+        <script src="js/vue.js"></script>
+    </head>
+    <body>
+        <div id="app">
+  <!-- 文本插值代码示例  -->
+            <div>
+                <span>{{ name }}</span>
+            </div>
+
+          <!-- 内置过滤器示例 -->
+            <div>
+                <span>{{ name | uppercase }}</span>
+            </div>
+          
+          <!-- 列表渲染 -->
+            <ul>
+                <li v-for="item in items ">{{ item.name }}</li> <!-- | filterBy '1.0' in 'name' -->
+            </ul>
+          
+          <!-- 绑定事件 -->
+          <button @click="say">Say</button>
+          
+          <!-- form input 绑定 -->
+          <input type="text" v-model="msg" />
+        </div>
+        <script>
+           var vm = new Vue({
+              el: '#app',
+              data: {
+                name: 'Vue',
+                items: [{
+                  name: 'Vue1.0',
+                  version: '1.0'
+                }, {
+                  name: 'Vue2.0',
+                  version: '2.0'
+                }],
+                msg : 'default msg'
+              },
+              methods: {
+                say: function(e) {
+                  alert(this.msg);
+                }
+              }
+});
+
+        </script>
+    </body>
+</html>

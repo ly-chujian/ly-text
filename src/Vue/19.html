@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>指令</title>
+	<script src="js/vue.js"></script>
+	<style>
+		#app{ }
+		.row{ height:100px; margin:0 auto; border-bottom: 2px solid #333;  }
+		.row .col-xs-4{ height:30px; line-height: 30px; }
+	</style>
+
+</head>
+<body>
+<div id="app">
+  <div class="container">
+
+    <!-- 内置指令 -->
+    <div class="row">
+      <div class="col-xs-4" v-show="show">内置指令</div>
+      <div class="col-xs-4">
+          <button class="btn btn-primary" @click="show = !show">显示开关</button>
+      </div>
+    </div>
+
+    <!-- 自定义指令 -->
+    <div class="row">
+      <div class="col-xs-4" v-my-directive="customShow">自定义的指令</div>
+      <div class="col-xs-4">
+        <button class="btn btn-primary" @click="customShow = !customShow">显示开开关关</button>
+      </div>
+    </div>
+    
+
+    <!-- 组件 -->
+    <div class="row">
+       <div class="col-xs-4">
+         <input class="form-control" v-model="num" type="number" />
+       </div>
+       <div class="col-xs-4">
+         <star class :num="num" :max="6"></star>
+       </div>
+    </div>
+
+
+  </div>
+</div>
+<script>
+Vue.directive('my-directive', {
+  bind: function() {},
+
+  update: function(newValue, oldValue) {
+    if(newValue) { 
+    	this.el.style.display = 'block'
+    } else {
+    	this.el.style.display = 'none';
+    }
+  },
+
+  unbind: function() {
+    console.log('unbind', arguments);
+  }
+});
+/*自定义指令 over*/
+
+var Star = Vue.extend({
+	props : ['num', 'max'],
+  	template : '<div class="wrap"> \
+	  	<i :class="[\'glyphicon\', \'glyphicon-star\', i < num && \'blue\']" v-for="i in max"></i> \
+    </div>'
+})
+Vue.component('star', Star);
+
+var vm = new Vue({
+  el: '#app',
+  data: {
+    show: true,
+    customShow : true,
+    num  : 1
+  }
+});
+
+/*自定义指令 组件*/
+</script>
+	
+</body>
+</html>

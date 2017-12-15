@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/vue.js"></script>
+
+</head>
+<body>
+	<div id="box">
+	<input type="text" v-model="newTodo" id="txt"><button v-on:click="addTodo" >点击</button>
+	<ul>
+		<li v-for="todo in todos">
+			<span>{{todo.txt}}</span>
+			<button v-on:click="removeTodo($index)">关闭</button>
+		</li>
+	</ul>
+	</div>
+</body>
+<script>
+new Vue({
+ 	el:'#box',
+ 	data:{
+		newTodo:'',
+		todo:[
+			{txt:'这是默认的li'}
+		]
+	},
+ 	methods:{
+ 		addTodo:function(){
+ 				alert(1)
+ 				var aTxt = Vue.$el('#txt')
+ 				var txt = aTxt.newTodo.trim()
+ 				
+ 				if(txt){
+ 					aTxt.todo.push('txt')
+ 					aTxt.newTodo=''
+ 				}
+ 		},
+ 		removeTodo:function(index){
+			this.todos.splice(index,1)
+		}
+
+ 	}
+})
+</script>
+</html>

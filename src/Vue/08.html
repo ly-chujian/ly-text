@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/vue.js"></script>
+</head>
+<body>
+<div id="box">
+<ul>
+	<li v-for="massage in msg">
+		{{massage.text}}
+	</li>
+</ul>
+</div>
+</body>
+<script>
+new Vue({
+	el:'#box',
+	data:{
+		msg:[
+			{text: '111'},
+			{text: '222'},
+			{text: '333'}
+		]
+	}
+})
+</script>
+</html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="js/vue.js"></script>
+
+</head>
+
+<body>
+<div id="box">
+<p>{{massage}}</p>
+<input v-model="text">
+</div>
+</body>
+<script>
+new Vue({
+	el:'#box',
+	data: {
+		massage:'Hello world!',
+		text:'这是input'
+	}
+})
+
+</script>
+</html>

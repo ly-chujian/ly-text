@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="js/vue.js"></script>
+</head>
+
+<body>
+<div id="box">
+</div>
+
+</div>
+</body>
+<script>
+
+var Box = Vue.extend({//extend扩展
+	
+	 template: '<p>{{Name}}是{{Sex}}，今年{{Age}}岁，上{{Group}}</p>'
+	 
+})
+
+var Box = new Box({
+	data:{
+		Name:'XiaoMing',
+		Sex:'男生',
+		Age:'18',
+		Group:'一年级'
+	}
+	
+	
+})
+Vue.config.debug = true;
+Box.$mount('#box');
+</script>
+</html>

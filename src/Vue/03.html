@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="js/vue.js"></script>
+</head>
+
+<body>
+<div id="box">
+<p>{{message}}</p>
+<p>{{msg}}</p>
+<button v-on:click="reverseMsg"> reverseMsg </button>
+</div>
+
+
+</body>
+
+<script>
+new Vue({
+	el:'#box',
+	data:{
+		message:'这是p标签',
+		msg:'asdaksdh'
+	},
+	methods:{// method类函数
+		reverseMsg: function(){
+			this.msg = this.msg.split('').reverse().join('');
+			this.message = this.message.split('').reverse().join('');
+		}
+	}
+})
+
+
+
+</script>
+</html>
