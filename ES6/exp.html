@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>asd</title>
+</head>
+<body>
+<script>
+	"use strict";
+	class Animal {
+	    constructor(){
+	        this.type = 'animal'
+	    }
+	    says(say){
+	        setTimeout(function(){
+	            console.log(this.type + ' says ' + say)
+	        }, 1000)
+	    }
+	}
+
+ var animal = new Animal()
+animal.says('hi');
+
+</script>
+</body>
+</html>
+
+
